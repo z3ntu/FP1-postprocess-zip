@@ -2,8 +2,13 @@
 
 set -e
 
+if [ ! -n "$1" ]; then
+  echo "Usage: $0 <version-number>"
+  exit 1
+fi
+
 tmp=$(mktemp -d)
-zip_path=$PWD/FP1-4.4.2-z3ntu-0.0.4.zip
+zip_path=$PWD/FP1-4.4.2-z3ntu-$1.zip
 
 updater_script=META-INF/com/google/android/updater-script
 apns_conf=system/etc/apns-conf.xml
